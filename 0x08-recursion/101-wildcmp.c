@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * strlen_ignore_wilds - Returns string length 
+ * strlen_ignore_wilds - Return string length
  * @s: string to be measured
  *
  * Return: The length
