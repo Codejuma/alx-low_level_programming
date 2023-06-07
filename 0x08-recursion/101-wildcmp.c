@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * strlen_ignore_wilds - Returns string length ignore wildcard chars
+ * strlen_ignore_wilds - Returns string length 
  * @s: string to be measured
  *
  * Return: The length
@@ -21,7 +21,7 @@ int strlen_ignore_wilds(char *s)
 	return (length);
 }
 /**
- * iterate_wild - iterate a string located a wild until non-wildcard char
+ * iterate_wild - iterate a string located
  * @wildstring: The string to be iterated
  */
 void iterate_wild(char **wildstring)
@@ -33,13 +33,11 @@ void iterate_wild(char **wildstring)
 	}
 }
 /**
- * postfix_match - check if s matches the postfix of
- *			another string potentially containing wildcard.
+ * postfix_match - check if s matches the postfix
  * @s: string to be matched
  * @postfix: postfix
  *
  * Return: if s and postfix are same - pointer to null byte
- *					located at the end of postfix
  * Otherwise - pointer to the first unmatched char in postfix
  */
 char *postfix_match(char *s, char *postfix)
