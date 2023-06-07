@@ -1,11 +1,11 @@
 #include "main.h"
 /**
- * strlen_ignore_wilds - Return string length
+ * strlen_no_wilds - Return string length
  * @s: string to be measured
  *
- * Return: The length
+ * Return: the length
  */
-int strlen_ignore_wilds(char *s)
+int strlen_no_wilds(char *s)
 {
 	int length = 0, index = 0;
 
@@ -15,7 +15,7 @@ int strlen_ignore_wilds(char *s)
 			length++;
 
 		index++;
-		length += strlen_ignore_wilds(s + index);
+		length += strlen_no_wilds(s + index);
 	}
 
 	return (length);
@@ -23,6 +23,7 @@ int strlen_ignore_wilds(char *s)
 /**
  * iterate_wild - iterate a string located
  * @wildstring: The string to be iterated
+ * Return: void
  */
 void iterate_wild(char **wildstring)
 {
@@ -42,13 +43,13 @@ void iterate_wild(char **wildstring)
  */
 char *postfix_match(char *s, char *postfix)
 {
-	int string_length = strlen_ignore_wilds(s) - 1;
-	int postfix_length = strlen_ignore_wilds(postfix) - 1;
+	int string_len = strlen_no_wilds(s) - 1;
+	int postfix_len = strlen_no_wilds(postfix) - 1;
 
 	if (*postfix == '*')
 		iterate_wild(&postfix);
 
-	if (*(s + string_length - postfix_length) == *postfix && *postfix != '\0')
+	if (*(s + string_len - postfix_len) == *postfix && *postfix != '\0')
 	{
 		postfix++;
 		return (postfix_match(s, postfix));
@@ -61,7 +62,7 @@ char *postfix_match(char *s, char *postfix)
  * @s1: first string
  * @s2: second string, may contain special char
  *
- * Return: if identical return 1, otherwise return 0
+ * Return: 1 if identical, otherwise return 0
  */
 int wildcmp(char *s1, char *s2)
 {
