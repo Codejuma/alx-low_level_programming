@@ -29,7 +29,7 @@ void iterate_wild(char **wildstring)
 {
 	if (**wildstring == '*')
 	{
-		(**wildstring)++;
+		(*wildstring)++;
 		iterate_wild(wildstring);
 	}
 }
