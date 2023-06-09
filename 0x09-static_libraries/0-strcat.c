@@ -1,4 +1,4 @@
-#include"main.h"
+#include "main.h"
 /**
  * _strcat - appends content from one str to another
  * @dest: destination string
