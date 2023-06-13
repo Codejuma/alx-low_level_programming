@@ -9,11 +9,11 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, k length = 0, index = 0;
+	int i, j, length = 0, index = 0;
 	char *string;
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
+		return NULL;
 
 	for (i = 0; i < ac; i++)
 	{
@@ -22,7 +22,7 @@ char *argstostr(int ac, char **av)
 	}
 	length += ac;
 
-	string = malloc(sizeof(char) * length + 1);
+	string = malloc(sizeof(char) * length);
 	if (string == NULL)
 		return (NULL);
 
@@ -37,5 +37,6 @@ char *argstostr(int ac, char **av)
 		index++;
 	}
 	string[index - 1] = ' ';
-	return (string);
+
+	return string;
 }
