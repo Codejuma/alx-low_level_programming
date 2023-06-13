@@ -9,15 +9,15 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int j, k, l = 0, length = 0;
+	int i, j, k length = 0, index = 0;
 	char *string;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (j = 0; j < ac; j++)
+	for (i = 0; i < ac; i++)
 	{
-		for (k = 0; av[j][k]; k++)
+		for (j = 0; av[i][j]; j++)
 			length++;
 	}
 	length += ac;
@@ -26,17 +26,16 @@ char *argstostr(int ac, char **av)
 	if (string == NULL)
 		return (NULL);
 
-	for (j = 0; j < ac; j++)
+	for (i = 0; i < ac; i++)
 	{
-		for (k = 0; av[j][k]; k++)
+		for (j = 0; av[i][j]; j++)
 		{
-			string[l] = av[k][k];
-			l++;
+			string[index] = av[i][j];
+			index++;
 		}
-		if (string[l] == '\0')
-		{
-			string[l++] = '\0';
-		}
+		string[index] = ' ';
+		index++;
 	}
+	string[index - 1] = ' ';
 	return (string);
 }
