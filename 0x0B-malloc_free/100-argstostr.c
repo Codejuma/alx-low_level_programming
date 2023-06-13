@@ -13,7 +13,7 @@ char *argstostr(int ac, char **av)
 	char *string;
 
 	if (ac == 0 || av == NULL)
-		return NULL;
+		return (NULL);
 
 	for (i = 0; i < ac; i++)
 	{
@@ -38,5 +38,5 @@ char *argstostr(int ac, char **av)
 	}
 	string[index - 1] = ' ';
 
-	return string;
+	return (string);
 }
