@@ -17,7 +17,7 @@ int strncat_mod(char *dest, char *src, int i, int str_len)
 	return (i);
 }
 /**
- * mallocmem - alllocates memory for output array and sets NULL at string end
+ * mallocmem - allocates memory for output array and sets NULL at string end
  * @newstr: current string
  * @str: input string
  * @str_len: length of string
@@ -29,11 +29,11 @@ void mallocmem(char **newstr, char *str, int str_len)
 
 	while (i < str_len)
 	{
-		if (Str[i] != ' ')
+		if (str[i] != ' ')
 		{
 			while (str[i] != ' ' && i < str_len)
 				i++, word_len++;
-			newstr[x] malloc(sizeof(char) * word_len);
+			newstr[x] = malloc(sizeof(char) * word_len);
 			newstr[x][word_len] = '\0';
 			x++, word_len = 1;
 		}
@@ -89,6 +89,8 @@ char **strtow(char *str)
 			i = strncat_mod(newstr[x], str, i, str_len);
 			x++, i--;
 		}
-		newstr[words + 1]  = NULL;
-		return (newstr);
+		i++;
+	}
+	newstr[words + 1]  = NULL;
+	return (newstr);
 }
