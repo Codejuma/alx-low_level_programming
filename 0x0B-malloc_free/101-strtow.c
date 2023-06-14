@@ -2,30 +2,34 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * strcat_mod - concatenates string with n bytes from another string
+ * strncat_mod - concatenates string with n bytes from another string
  * @dest: final dest
  * @src: source
  * @i: index of beginning char from from source to destination
- * Return: next index to check source string
+ * @str_len: string length
+ * Return: next index to check of source string
  */
 int strncat_mod(char *dest, char *src, int i, int str_len)
 {
-	int x;
+	int j;
+	
+	for (j = 0; src[i] != ' ' && src[i] != '\0' && i < str_len; i++, j++)
+	{
+		dest[j] = src[i];
+	}
 
-	for (x = 0; src[i] != ' ' && i < str_len; i++, x++)
-		dest[x] = src[i];
 	return (i);
 }
 /**
  * mallocmem - allocates memory for output array and sets NULL at string end
- * @newstr: current string
- * @str: input string
- * @str_len: length of string
+ * @newstr: new string
+ * @str - input string
+ * @str_len: string length
  * Return: void
  */
 void mallocmem(char **newstr, char *str, int str_len)
 {
-	int i = 0, x = 0, word_len = 1;
+	int i = 0, j = 0, word_len = 1;
 
 	while (i < str_len)
 	{
@@ -33,18 +37,18 @@ void mallocmem(char **newstr, char *str, int str_len)
 		{
 			while (str[i] != ' ' && i < str_len)
 				i++, word_len++;
-			newstr[x] = malloc(sizeof(char) * word_len);
-			newstr[x][word_len] = '\0';
-			x++, word_len = 1;
+			newstr[j] = malloc(sizeof(char) * word_len);
+			newstr[j][word_len] = '\0';
+			j++, word_len = 1;
 		}
 		i++;
 	}
 }
 /**
- * word_count - count the number of words
- * @str: input string
+ * word_count - counts words in input string
+ * @str:input string
  * @str_len: string length
- * Return: 0 on failure, words on success
+ * Return: 0 on failure, words success
  */
 int word_count(char *str, int str_len)
 {
@@ -55,23 +59,23 @@ int word_count(char *str, int str_len)
 		if (str[i] != ' ')
 		{
 			while (str[i] != ' ' && i < str_len)
-				i++;
-			words++;
+				i++, words++;
 		}
-		if (words == 0)
-			return (0);
+		i++;
 	}
+	if (words == 0)
+		return (0);
 	return (words);
 }
 /**
  * strtow - splits a string into words
- * @str: input string
- * Return: pointer to a new string
+ * @str: input string to split
+ * Return: pointer to new string
  */
 char **strtow(char *str)
 {
 	char **newstr;
-	int i = 0, x = 0, str_len = 0, words;
+	int i = 0, j = 0, str_len = 0, words;
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
@@ -86,11 +90,11 @@ char **strtow(char *str)
 	{
 		if (str[i] != ' ')
 		{
-			i = strncat_mod(newstr[x], str, i, str_len);
-			x++, i--;
+			i = strncat_mod(newstr[j], str, i, str_len);
+			j++, i--;
 		}
 		i++;
 	}
-	newstr[words + 1]  = NULL;
+	newstr[words + 1] = NULL;
 	return (newstr);
 }
