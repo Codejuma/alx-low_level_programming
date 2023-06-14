@@ -9,7 +9,7 @@
  */
 char *argstostr(int ac, char **av)
 {
-	int i, j, l = 0, length = 0;
+	int i, j, k = 0, length = 0;
 	char *string;
 
 	if (ac == 0 || av == NULL)
@@ -33,7 +33,7 @@ char *argstostr(int ac, char **av)
 			string[k] = av[i][j];
 			k++;
 		}
-		if (string[k] == '\0');
+		if (string[k] == '\0')
 		{
 			string[k++] = '\n';
 		}
