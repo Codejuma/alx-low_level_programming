@@ -1,6 +1,6 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int find_len(char *str);
 char *create_xarray(int size);
@@ -83,7 +83,7 @@ int get_digit(char c)
  * @digit: The single digit
  * @zeroes: The necessary number of leading zeroes.
  *
- * Description: If mult contains a non-digit,
+ * Description: If mult contains a non-digit, exit with 98
  */
 void get_prod(char *prod, char *mult, int digit, int zeroes)
 {
