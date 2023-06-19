@@ -1,5 +1,5 @@
 #include "dog.h"
-#include <stdlib>
+#include <stdlib.h>
 
 /**
  * new_dog - creates a new dof
