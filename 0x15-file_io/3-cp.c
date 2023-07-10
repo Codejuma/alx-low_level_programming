@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		if (nchars == -1)
 			error_file(-1, 0, argv);
 		nw = write(file_to, buf, nchars);
-		if (nwr == -1)
+		if (nw == -1)
 			error_file(0, -1, argv);
 	}
 	err_close = close(file_from);
